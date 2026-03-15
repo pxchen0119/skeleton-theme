@@ -1,5 +1,5 @@
 <div class="hero-section full-width" style="--hero-height: {{ section.settings.height }}vh">
-  {% if section.settings.video_file != blank %}
+  {% if section.settings.video_url != blank or section.settings.video_file != blank %}
     <div class="hero__background hero__background--video">
       <video
         class="hero__video"
@@ -12,7 +12,11 @@
           poster="{{ section.settings.background_image | image_url: width: 2000 }}"
         {% endif %}
       >
-        <source src="{{ section.settings.video_file | file_url }}" type="video/mp4">
+        {% if section.settings.video_url != blank %}
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        {% else %}
+          <source src="{{ section.settings.video_file | file_url }}" type="video/mp4">
+        {% endif %}
       </video>
     </div>
   {% elsif section.settings.background_image %}
@@ -160,6 +164,12 @@
     {
       "type": "header",
       "content": "t:general.design"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "External video URL (e.g., from CDN). This takes priority over the uploaded video file."
     },
     {
       "type": "video",

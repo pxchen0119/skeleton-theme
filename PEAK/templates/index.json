@@ -16,7 +16,7 @@
         "subheading": "Premium nutrition engineered for athletes",
         "button_text": "SHOP NOW",
         "button_link": "",
-        "video_file": "shopify://files/videos/background-movie.mp4",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/e1d91e045ebd4a1a96d2977e8d5efd3a.mp4",
         "background_image": "shopify://shop_images/Peak_Logo_White.png",
         "overlay_opacity": 40,
         "height": 90
