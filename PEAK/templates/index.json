@@ -28,7 +28,7 @@
         "product_1": {
           "type": "product-card",
           "settings": {
-            "product": "",
+            "product": "descent-gel",
             "show_description": false,
             "show_price": true,
             "show_button": true,
