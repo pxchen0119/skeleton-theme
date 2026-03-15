@@ -1,5 +1,20 @@
 <div class="hero-section full-width" style="--hero-height: {{ section.settings.height }}vh">
-  {% if section.settings.background_image %}
+  {% if section.settings.video_file != blank %}
+    <div class="hero__background hero__background--video">
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        {% if section.settings.background_image %}
+          poster="{{ section.settings.background_image | image_url: width: 2000 }}"
+        {% endif %}
+      >
+        <source src="{{ section.settings.video_file | file_url }}" type="video/mp4">
+      </video>
+    </div>
+  {% elsif section.settings.background_image %}
     <div class="hero__background">
       {{ section.settings.background_image | image_url: width: 2000 | image_tag: loading: 'eager' }}
     </div>
@@ -44,10 +59,15 @@
     z-index: 0;
   }
 
-  .hero__background img {
+  .hero__background img,
+  .hero__video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .hero__background--video {
+    overflow: hidden;
   }
 
   .hero__overlay {
@@ -139,9 +159,16 @@
       "content": "t:general.design"
     },
     {
+      "type": "video",
+      "id": "video_file",
+      "label": "t:labels.background_video",
+      "info": "t:info.background_video"
+    },
+    {
       "type": "image_picker",
       "id": "background_image",
-      "label": "t:labels.background_image"
+      "label": "t:labels.background_image",
+      "info": "t:info.background_image_fallback"
     },
     {
       "type": "range",

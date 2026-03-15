@@ -52,6 +52,7 @@
     "alignment": "Alignment",
     "background": "Background",
     "background_image": "Background image",
+    "background_video": "Background video URL",
     "button_link": "Button link",
     "button_text": "Button text",
     "columns_desktop": "Desktop columns",
@@ -102,6 +103,10 @@
       "title": "Title",
       "subtitle": "Subtitle",
       "normal": "Normal text"
-    },
+    }
+  },
+  "info": {
+    "background_video": "MP4 video URL. Video will autoplay, loop, and be muted. Upload video to Shopify Files or use external hosting.",
+    "background_image_fallback": "Used as video poster image or fallback if no video is provided"
   }
 }
