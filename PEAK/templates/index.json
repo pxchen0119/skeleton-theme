@@ -16,6 +16,8 @@
         "subheading": "Premium nutrition engineered for athletes",
         "button_text": "SHOP NOW",
         "button_link": "",
+        "video_file": "shopify://files/videos/background-movie.mp4",
+        "background_image": "shopify://shop_images/Peak_Logo_White.png",
         "overlay_opacity": 40,
         "height": 90
       }
@@ -26,29 +28,35 @@
         "product_1": {
           "type": "product-card",
           "settings": {
+            "product": "",
             "show_description": false,
             "show_price": true,
             "show_button": true,
             "button_text": "VIEW PRODUCT"
-          }
+          },
+          "blocks": {}
         },
         "product_2": {
           "type": "product-card",
           "settings": {
+            "product": "",
             "show_description": false,
             "show_price": true,
             "show_button": true,
             "button_text": "VIEW PRODUCT"
-          }
+          },
+          "blocks": {}
         },
         "product_3": {
           "type": "product-card",
           "settings": {
+            "product": "",
             "show_description": false,
             "show_price": true,
             "show_button": true,
             "button_text": "VIEW PRODUCT"
-          }
+          },
+          "blocks": {}
         }
       },
       "block_order": [
