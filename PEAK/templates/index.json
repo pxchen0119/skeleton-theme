@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "FUEL YOUR PEAK",
+        "subheading": "Premium nutrition engineered for athletes",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "overlay_opacity": 40,
+        "height": 90
+      }
+    },
+    "product_grid": {
+      "type": "product-grid",
+      "blocks": {
+        "product_1": {
+          "type": "product-card",
+          "settings": {
+            "show_description": false,
+            "show_price": true,
+            "show_button": true,
+            "button_text": "VIEW PRODUCT"
+          }
+        },
+        "product_2": {
+          "type": "product-card",
+          "settings": {
+            "show_description": false,
+            "show_price": true,
+            "show_button": true,
+            "button_text": "VIEW PRODUCT"
+          }
+        },
+        "product_3": {
+          "type": "product-card",
+          "settings": {
+            "show_description": false,
+            "show_price": true,
+            "show_button": true,
+            "button_text": "VIEW PRODUCT"
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3"
+      ],
+      "settings": {
+        "heading": "ENERGY GELS",
+        "description": "Fuel your performance with our scientifically formulated energy gels",
+        "columns_desktop": 3,
+        "columns_mobile": "1"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "product_grid"
+  ]
+}

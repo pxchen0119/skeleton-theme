@@ -1,0 +1,189 @@
+{% liquid
+  assign product = block.settings.product
+
+  if product == blank
+    assign product_title = 'Product Title'
+    assign product_url = '#'
+    assign product_image = null
+    assign product_price = 0
+  else
+    assign product_title = product.title
+    assign product_url = product.url
+    assign product_image = product.featured_image
+    assign product_price = product.price
+  endif
+%}
+
+<div class="product-card" {{ block.shopify_attributes }}>
+  <a href="{{ product_url }}" class="product-card__link">
+    <div class="product-card__image">
+      {% if product_image %}
+        {{ product_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: product_title }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+
+    <div class="product-card__info">
+      <h3 class="product-card__title">{{ product_title }}</h3>
+
+      {% if block.settings.show_description and product.description != blank %}
+        <p class="product-card__description">{{ product.description | strip_html | truncate: 100 }}</p>
+      {% endif %}
+
+      {% if block.settings.show_price and product %}
+        <div class="product-card__price">
+          {{ product_price | money }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_button %}
+        <div class="product-card__button">
+          <span class="button">{{ block.settings.button_text | default: 'View Product' }}</span>
+        </div>
+      {% endif %}
+    </div>
+  </a>
+</div>
+
+{% stylesheet %}
+  .product-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .product-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(239, 255, 4, 0.1);
+  }
+
+  .product-card__link {
+    display: block;
+    color: inherit;
+  }
+
+  .product-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background-color: var(--color-background);
+  }
+
+  .product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .product-card__image img {
+    transform: scale(1.05);
+  }
+
+  .product-card__image .placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+  }
+
+  .product-card__info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .product-card__title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  .product-card__description {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .product-card__price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .product-card__button {
+    margin-top: 1rem;
+  }
+
+  .product-card__button .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    .product-card__info {
+      padding: 1rem;
+    }
+
+    .product-card__title {
+      font-size: 1.1rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.product_card.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:general.product"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:labels.product"
+    },
+    {
+      "type": "header",
+      "content": "t:general.display"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:labels.show_description",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "t:labels.show_price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "t:labels.show_button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:labels.button_text",
+      "default": "View Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.product_card.name"
+    }
+  ]
+}
+{% endschema %}
