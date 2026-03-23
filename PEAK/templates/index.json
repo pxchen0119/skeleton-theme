@@ -14,7 +14,7 @@
       "settings": {
         "heading": "FUEL YOUR PEAK",
         "subheading": "Premium nutrition engineered for athletes",
-        "button_text": "SHOP NOW",
+        "button_text": "sign up for updates",
         "button_link": "",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/e1d91e045ebd4a1a96d2977e8d5efd3a.mp4",
         "background_image": "shopify://shop_images/Peak_Logo_White.png",
@@ -64,6 +64,7 @@
         "product_2",
         "product_3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "ENERGY GELS",
         "description": "Fuel your performance with our scientifically formulated energy gels",
